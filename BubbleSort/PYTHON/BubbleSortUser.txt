@@ -1,0 +1,13 @@
+
+#user
+
+class Solution:
+  def bubbleSort(arr: List[int])->List[int]:
+    pass 
+
+#user 
+
+
+if __name__=="__main__":
+  input = list(map(int,input().split()))
+  print(*bubleSort(input))

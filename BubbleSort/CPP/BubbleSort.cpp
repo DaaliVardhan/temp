@@ -5,6 +5,23 @@
 #include<vector>
 #include <stdexcept>
 
+
+
+std::vector<int> bubbleSort(std::vector<int>& arr){
+  int n = arr.size();
+  for(int i=0;i<n-1;i++){
+    for(int j=0;j<n-i-1;j++){
+      if(arr[j]>arr[j+1]){
+        int temp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+
 struct TestCase{
   std::string input;
   std::string output;
@@ -49,23 +66,6 @@ std::vector<int> splitInt(std::string& s, char delimiter){
   return res;
 }
 
-
-
-std::vector<int> sortArray(std::vector<int>& arr){
-  int n = arr.size();
-  for(int i=0;i<n-1;i++){
-    for(int j=0;j<n-i-1;j++){
-      if(arr[j]>arr[j+1]){
-        int temp = arr[j];
-        arr[j] = arr[j+1];
-        arr[j+1] = temp;
-      }
-    }
-  }
-  return arr;
-}
-
-
 int main(){
   std::ifstream myfile; myfile.open("testcases.txt");
   std::vector<TestCase> lines;
@@ -79,7 +79,7 @@ int main(){
   
   for(auto& line:lines){
     std::vector<int> arr = splitInt(line.input,' ');
-    std::vector<int> res = sortArray(arr);
+    std::vector<int> res = bubbleSort(arr);
     std::string output = to_string(res);
     if(output!=line.output){
       throw std::runtime_error("Wrong answer");
