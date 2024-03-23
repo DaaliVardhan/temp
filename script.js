@@ -9,7 +9,7 @@ db = new Trie()
 getWords(db)
 
 async function getWords(db){
-  const res = await fetch("/words.txt");
+  const res = await fetch("./words.txt");
   const data = await res.text();
   data.split("\n").forEach((item)=>{
     item = item.trim()
