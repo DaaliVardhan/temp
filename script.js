@@ -30,6 +30,7 @@ function selectText(e){
   list.push(text);
   input.value = list.join(' ');
   result.innerHTML = "";
+  input.value+=" "
   input.focus()
 }
 
@@ -54,7 +55,7 @@ function search(e){
   const word = words[words.length-1];
   if(!word.length) return;
   const res = db.search(word);
-  list = [...words.slice(0,words.length-2)]
+  list = [...words.slice(0,words.length-1)]
   display(res)
 }
 
